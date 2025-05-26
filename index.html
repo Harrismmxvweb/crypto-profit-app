@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crypto Profit/Loss Calculator</title>
+  <style>
+    body { font-family: Arial; max-width: 500px; margin: auto; padding: 20px; }
+    input, button { width: 100%; padding: 10px; margin: 10px 0; }
+    .result { margin-top: 20px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h2>Crypto Profit/Loss Calculator</h2>
+
+  <input type="text" id="coin" placeholder="Coin Name (e.g. BTC)" />
+  <input type="number" id="entry" placeholder="Entry Price" step="any" />
+  <input type="number" id="sell" placeholder="Sell Price" step="any" />
+  <input type="number" id="stop" placeholder="Stop Loss Price" step="any" />
+  <input type="number" id="investment" placeholder="Investment Amount" step="any" />
+
+  <button onclick="calculate()">Calculate</button>
+
+  <div class="result" id="output"></div>
+
+  <script>
+    function calculate() {
+      const entry = parseFloat(document.getElementById('entry').value);
+      const sell = parseFloat(document.getElementById('sell').value);
+      const stop = parseFloat(document.getElementById('stop').value);
+      const investment = parseFloat(document.getElementById('investment').value);
+
+      const quantity = investment / entry;
+
+      const profit = (sell - entry) * quantity;
+      const loss = (entry - stop) * quantity;
+
+      const profitPercent = (profit / investment) * 100;
+      const lossPercent = (loss / investment) * 100;
+
+      document.getElementById('output').innerHTML = `
+        📈 <strong>Profit:</strong> ${profit.toFixed(2)} (${profitPercent.toFixed(2)}%)<br>
+        📉 <strong>Loss:</strong> ${loss.toFixed(2)} (${lossPercent.toFixed(2)}%)
+      `;
+    }
+  </script>
+</body>
+</html>
