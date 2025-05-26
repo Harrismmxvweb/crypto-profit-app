@@ -5,23 +5,72 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Crypto Profit/Loss Calculator</title>
   <style>
-    body { font-family: Arial; max-width: 500px; margin: auto; padding: 20px; }
-    input, button { width: 100%; padding: 10px; margin: 10px 0; }
-    .result { margin-top: 20px; font-weight: bold; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      background: #fff;
+      max-width: 500px;
+      margin: 60px auto;
+      padding: 30px 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #333;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #0070f3;
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #005ad6;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+      background: #f0f8ff;
+      padding: 10px;
+      border-radius: 6px;
+      color: #333;
+    }
   </style>
 </head>
 <body>
-  <h2>Crypto Profit/Loss Calculator</h2>
+  <div class="container">
+    <h2>Crypto Profit/Loss Calculator</h2>
 
-  <input type="text" id="coin" placeholder="Coin Name (e.g. BTC)" />
-  <input type="number" id="entry" placeholder="Entry Price" step="any" />
-  <input type="number" id="sell" placeholder="Sell Price" step="any" />
-  <input type="number" id="stop" placeholder="Stop Loss Price" step="any" />
-  <input type="number" id="investment" placeholder="Investment Amount" step="any" />
+    <input type="text" id="coin" placeholder="Coin Name (e.g. BTC)" />
+    <input type="number" id="entry" placeholder="Entry Price" step="any" />
+    <input type="number" id="sell" placeholder="Sell Price" step="any" />
+    <input type="number" id="stop" placeholder="Stop Loss Price" step="any" />
+    <input type="number" id="investment" placeholder="Investment Amount" step="any" />
 
-  <button onclick="calculate()">Calculate</button>
+    <button onclick="calculate()">Calculate</button>
 
-  <div class="result" id="output"></div>
+    <div class="result" id="output"></div>
+  </div>
 
   <script>
     function calculate() {
